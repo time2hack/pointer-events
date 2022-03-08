@@ -2,17 +2,17 @@ const routes =
   {
     'home': {
       name: 'home',
-      partial: '/partials/home.html',
+      partial: './partials/home.html',
       content: null,
     },
     'products': {
       name: 'products',
-      partial: '/partials/products.html',
+      partial: './partials/products.html',
       content: null,
     },
     'services': {
       name: 'services',
-      partial: '/partials/services.html',
+      partial: './partials/services.html',
       content: null,
     }
   }
