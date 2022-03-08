@@ -1,0 +1,23 @@
+{
+  "name": "pointer-events",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "localserver -p 8181 ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/time2hack/pointer-events.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/time2hack/pointer-events/issues"
+  },
+  "homepage": "https://github.com/time2hack/pointer-events#readme",
+  "dependencies": {
+    "localserver": "^0.1.4"
+  }
+}
