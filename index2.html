@@ -39,7 +39,7 @@
 
     <div class="container grid-lg">
       <div class="my-2"></div>
-      <a href="./index2.html" class="btn btn-secondary">With pointer events</a>
+      <a href="./index.html" class="btn btn-secondary">No pointer events</a>
       <div class="my-2"></div>
     </div>
 
@@ -47,12 +47,23 @@
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const active = getActiveRoute();
-
+        const pointerFineSupported = window.matchMedia('(pointer: fine)').matches;
         const main = document.querySelector('#main');
 
         fetchTemplateForRoute(routes[active]).then(res => {
           main.innerHTML = res;
         });
+
+        console.log(pointerFineSupported);
+
+        if (pointerFineSupported) {
+          document.querySelectorAll('[data-prefetch]').forEach(el => {
+            el.addEventListener('mouseenter', (e) => {
+              const routeName = el.getAttribute('href').replace('#', '');
+              fetchTemplateForRoute(routes[routeName]);
+            })
+          })
+        }
 
         window.addEventListener("hashchange", () => {
           if (routes[getActiveRoute()].content) {
