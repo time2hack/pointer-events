@@ -47,20 +47,19 @@
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const active = getActiveRoute();
-        const pointerFineSupported = window.matchMedia('(pointer: fine)').matches;
         const main = document.querySelector('#main');
-
+        
         fetchTemplateForRoute(routes[active]).then(res => {
           main.innerHTML = res;
         });
-
-        console.log(pointerFineSupported);
+        
+        const pointerFineSupported = window.matchMedia('(pointer: fine)').matches;
 
         if (pointerFineSupported) {
           document.querySelectorAll('[data-prefetch]').forEach(el => {
             el.addEventListener('mouseenter', (e) => {
               const routeName = el.getAttribute('href').replace('#', '');
-              fetchTemplateForRoute(routes[routeName]);
+              !routes[routeName].content && fetchTemplateForRoute(routes[routeName]);
             })
           })
         }
